@@ -1,0 +1,21 @@
+.quoteList {
+  padding-bottom: 56px;
+  &__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  &__arrows {
+    display: flex;
+    justify-content: center;
+    img {
+      max-width: 40px;
+      max-height: 40px;
+      cursor: pointer;
+    }
+  }
+  &__arrowLeft {
+    margin-right: 20px;
+  }
+}

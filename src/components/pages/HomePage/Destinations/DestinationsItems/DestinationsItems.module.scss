@@ -1,0 +1,69 @@
+@import "../../../../../styles/mixins";
+
+.destinations__item {
+  @include itemShow();
+  max-width: 280px;
+  cursor: pointer;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  margin-left: 20px;
+  margin-top: 20px;
+  &Photo {
+    position: relative;
+    max-width: 260px;
+    max-height: 200px;
+  }
+  &Img {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+  }
+  &Rating {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 1px 10px;
+    background-color: #fff;
+    border-radius: 25px;
+    &Img {
+      max-width: 15px;
+      max-height: 15px;
+      width: 100%;
+      height: 100%;
+      margin-right: 5px;
+    }
+  }
+  &Info {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  &Title {
+    font-weight: 600;
+    font-size: 18px;
+  }
+  &Text {
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 5px;
+    color: rgba(0, 0, 0, 0.5);
+    padding-left: 17px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      top: -2px;
+      left: -5px;
+      background-image: url(../../../../../images/Destinations/destinations__itemTextImg.png);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+
+.destinations {
+  padding-bottom: 120px;
+  &__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

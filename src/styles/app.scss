@@ -1,0 +1,321 @@
+@import "./_fonts.scss";
+@import "./_variable.scss";
+@import "./_reset.scss";
+
+body {
+  font-family: $font;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1210px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+
+  &__link {
+    font-size: 24px;
+    margin-left: 50px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    &:first-child {
+      margin-left: 0;
+    }
+    &_active {
+      padding: 15px;
+      background-color: #fff;
+      color: #3e86f5;
+      border-radius: 10px;
+      &::before {
+        display: none;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 4px;
+      border-radius: 3px;
+      background-color: #fff;
+      transition: width 0.15s ease-in-out;
+    }
+    &:hover::before {
+      width: 100%;
+      transition: width 0.2s linear;
+    }
+  }
+  &__logo {
+    font-size: 48px;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.headerTop {
+  padding-top: 25px;
+}
+.headerTop_fixed {
+  .headerTop__inner {
+    @keyframes headerTopStickyShow {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    position: fixed;
+    background-color: #fff;
+    padding: 10px;
+    padding-top: 25px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation-duration: 0.74s;
+    animation-name: headerTopStickyShow;
+    animation-fill-mode: forwards;
+  }
+  .nav {
+    &__link {
+      color: #000;
+      &_active {
+        background-color: #000;
+        color: #fff;
+      }
+      &::before {
+        background-color: #000;
+      }
+    }
+    &__logo {
+      color: #000;
+    }
+  }
+  .navMobile {
+    &__logo {
+      color: #000;
+    }
+    &__button {
+      & div {
+        background-color: #000;
+      }
+    }
+  }
+}
+
+.navMobile {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  &__button {
+    display: flex;
+    flex-direction: column;
+    max-width: 39px;
+    max-height: 39px;
+    width: 100%;
+    z-index: 2;
+    cursor: pointer;
+    & div {
+      width: 100%;
+      max-width: 30px;
+      max-height: 30px;
+      min-height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+      margin: 4px;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    --content-width: 300px;
+    min-width: var(--content-width);
+    min-height: 100%;
+    background-color: #fff;
+    transform: translateX(calc(var(--content-width) * -1));
+    transition: 0.25s ease-out;
+    z-index: 3;
+    &Item {
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #000;
+      margin: 20px;
+    }
+    &Item_active {
+      background-color: #000;
+      padding: 10px;
+      color: #fff;
+      border-radius: 10px;
+    }
+    &_active {
+      transform: translateX(0);
+      transition: 0.35s ease-out;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .navMobile {
+    display: flex;
+  }
+  .nav {
+    display: none;
+  }
+}
+
+.content {
+  background-color: #f2f6ff;
+}
+
+.flightInfo {
+  display: flex;
+  padding: 44px 22px;
+  border: 2px solid rgba(172, 172, 172, 0.5);
+  border-radius: 25px;
+  font-weight: 500;
+  margin-left: 30px;
+  max-width: max-content;
+
+  @media (max-width: 1070px) {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+  @media (max-width: 440px) {
+    & {
+      align-items: center;
+      padding: 20px 10px;
+    }
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+  &__describe {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.5);
+    @media (max-width: 440px) {
+      & {
+        font-size: 14px;
+      }
+    }
+  }
+  &__title {
+    padding-top: 5px;
+    font-size: 24px;
+    @media (max-width: 440px) {
+      & {
+        font-size: 18px;
+      }
+    }
+  }
+  &__img {
+    margin: 0 30px;
+    object-fit: cover;
+    max-width: 40px;
+    max-height: 40px;
+    @media (max-width: 440px) {
+      & {
+        max-width: 30px;
+        max-height: 30px;
+      }
+    }
+  }
+}
+
+.sectionTitle {
+  font-weight: 600;
+  font-size: 48px;
+  text-align: center;
+
+  @media (max-width: 730px) {
+    font-size: 32px;
+  }
+}
+
+.categorySelector {
+  display: flex;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__btn {
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px 19px;
+    font-weight: 500;
+    font-size: 18px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+}
+
+// Classes that will mix with .categorySelector
+
+.specialOffers__category {
+  margin-top: 60px;
+  margin-bottom: 40px;
+  background-color: #fff;
+  .categorySelector__btn {
+    color: rgba(0, 0, 0, 0.5);
+    &_active {
+      background: #3e86f5;
+      border-radius: 10px;
+      color: #fff;
+    }
+  }
+}
+
+.destinations__category {
+  margin-top: 40px;
+  margin-bottom: 60px;
+  background: none;
+  .categorySelector__btn {
+    color: rgba(0, 0, 0, 0.5);
+    &_active {
+      background: #fff;
+      border-radius: 10px;
+      color: #3e86f5;
+    }
+  }
+}
+
+// ------
+
+.error {
+  text-align: center;
+  &__title {
+    font-size: 55px;
+    font-weight: 700;
+    padding-bottom: 20px;
+  }
+  &__describe {
+    font-size: 25px;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,25 @@
+
+.specialOffers {
+  padding-top: 385px;
+  padding-bottom: 150px;
+  @media (max-width: 1070px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &_isEmpty {
+      text-align: center;
+      font-size: 18px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
